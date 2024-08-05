@@ -1,0 +1,126 @@
+
+#header{
+    width: 100vw;
+    height: 100vh;
+    padding: 10px 0px 20px 0px;
+    background-color: black;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position : center;
+    background-attachment : fixed;
+    overflow: hidden;
+
+    position: relative;
+}
+
+.header_title {
+    font-size: 80px;
+    text-align: center;
+    color: white;
+}
+
+
+.login {
+    background-color: #F2F2F2;
+    width: 22%;
+    height: 70%;
+    border : none;
+    border-radius: 15px;
+
+    font-size: 30px;
+    margin-left: 100px;
+    float: left;
+
+    text-align: center;
+}
+
+.user_info {
+    width: 100%;
+    margin-top: 60px;
+    margin-bottom: 30px;
+}
+
+.user_info input {
+    width: 200px;
+    padding: 20px 10px 10px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid black;
+    font-size: 18px;
+    outline: none
+}
+
+.user_info label {
+    position: absolute;
+    left: 10px;
+    top: 15px;
+    font-size: 15px;
+    transition: top 0.5s ease;
+}
+
+.login_btn {
+    margin-top: 20px;
+}
+
+.login_btn button {
+    width: 200px;
+    height: 40px;
+
+    background-color: transparent;
+    color: black;
+    font-size: 16px;
+
+    border: none;
+}
+
+.caption {
+    margin-top: 40px;
+    font-size: 15px;
+    line-height: 30px;
+}
+
+#main {
+    width: 100vw;
+    height: 100vh;
+    padding: 20px 0px 20px 0px;
+    background-color: black;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position : center;
+    background-attachment : fixed;
+
+    position: relative;
+}
+
+.main1 {
+    top: 50%;
+    left: 50%;
+}
+
+.main_title {
+    font-size: 80px;
+    text-align: center;
+    color: white;
+}
+
+
+
+slider {
+    overflow: hidden;
+    position: relative;
+    float: right;
+    width: 60%;
+    height: 70%;
+    margin-right: 50px;
+    background-color: white;
+    justify-content: center;
+}
+.slide {
+    float: right;
+    width: 100%;
+    position: relative;
+}
+img {
+    width: 100%;
+    height: auto;
+}
