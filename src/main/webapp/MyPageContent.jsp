@@ -20,7 +20,7 @@
 </div>
 
 <div class="memberdata" style="text-align: center">
-  <form action="UpdateUser.jsp" method="post">
+  <form action="UpdateUser.jsp" method="post" >
     회원님의 로그인 ID <input type="text" name="USERID" value="<%= user.getUserid() %>" readonly>
     <br><br>
     변경할 PWD: <input type="password" name="USERPWD" value="<%= user.getUserpwd() %>">

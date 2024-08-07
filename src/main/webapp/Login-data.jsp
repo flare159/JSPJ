@@ -43,7 +43,10 @@
 
         // 사용자 검증 및 리다이렉트
         if (userDAO.validateUser(user)) {
+
+             userName = userDAO.getUserName(userId); // 사용자 이름을 가져오는 메소드
             session.setAttribute("userid", userId);
+            session.setAttribute("username",userName);
             response.sendRedirect("SportsMate3.jsp");
         } else {
             out.println("<script>alert('ID 또는 PWD가 맞지 않습니다'); location.href='SportsMate3.jsp';</script>");

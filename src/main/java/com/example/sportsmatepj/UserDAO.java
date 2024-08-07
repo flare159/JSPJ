@@ -90,6 +90,21 @@ public class UserDAO {
             return false;
         }
     }
+        //닉네임 가져오기
+    public String getUserName(String userId) {
+        String userName = null;
+        String sql = "SELECT username FROM pjmember WHERE userid = ?";
+        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, userId);
+            ResultSet rs = pstmt.executeQuery();
+            if (rs.next()) {
+                userName = rs.getString("USERNAME");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return userName;
+    }
 
 
 }

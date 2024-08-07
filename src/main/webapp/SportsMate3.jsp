@@ -5,6 +5,7 @@
 <%
     String userid = (String) session.getAttribute("userid");
     String username = (String) session.getAttribute("username");
+
 %>
 <%-- USERID --%>
 <!DOCTYPE html>
@@ -52,9 +53,10 @@
 <%-- 로그인 했을때 (임시)--%>
     <%
     } else {
+
     %>
     <div class="login-box">
-        어서오세요 <%= username %> 님 <a href="Logout.jsp"><input type="button" value="로그아웃"></a>
+        어서오세요 <%=username%> 님 <a href="Logout.jsp"><input type="button" value="로그아웃"></a>
         <a href="Mypage.jsp"><input type="button" value="마이페이지"></a>
     </div>
     <%

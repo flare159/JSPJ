@@ -40,7 +40,9 @@
 
       // 사용자 정보 업데이트
       if (userDAO.updateUser(user)) {
+        session.setAttribute("username", userName); //세션 USERNAME set
         out.println("<script>alert('정보 수정 성공'); location.href='SportsMate3.jsp';</script>");
+
       } else {
         out.println("<script>alert('정보 수정 실패'); location.href='MyPage.jsp';</script>");
       }
