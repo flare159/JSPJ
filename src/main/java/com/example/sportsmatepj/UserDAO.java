@@ -12,7 +12,7 @@ public class UserDAO {
         this.conn = conn;
     }
 
-    //중복 ID 검사
+    // 중복 ID 검사
     public boolean isUsernameUN(String username) {
         String sql = "SELECT 1 FROM PJMEMBER WHERE USERNAME = ?";
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -25,8 +25,7 @@ public class UserDAO {
         }
     }
 
-
-
+    // 사용자 유효성 검사
     public boolean validateUser(UserDTO user) {
         String sql = "SELECT USERID FROM PJMEMBER WHERE USERID = ? AND USERPWD = ?";
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -40,10 +39,10 @@ public class UserDAO {
         }
     }
 
+    // 사용자 추가
     public boolean addUser(UserDTO user) {
-        //회원가입 addUser
-        String sql = "INSERT INTO PJMEMBER p (USERNUMBER, USERID, USERPWD, USERNAME)" +
-                " values(PJMemNum.nextval, ?, ?, ? )";
+        String sql = "INSERT INTO PJMEMBER (USERNUMBER, USERID, USERPWD, USERNAME) " +
+                "VALUES (PJMemNum.nextval, ?, ?, ?)";
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, user.getUserid());
             pstmt.setString(2, user.getUserpwd());
@@ -54,21 +53,21 @@ public class UserDAO {
             e.printStackTrace();
             return false;
         }
-
     }
 
+    // 사용자 정보 가져오기
     public UserDTO getUserById(String userId) {
-        String sql = "SELECT USERID, USERPWD, USERNAME, USERPT FROM PJMEMBER WHERE USERID = ?";
+        String sql = "SELECT USERID, USERPWD, USERNAME, USERPT, USERPIC FROM PJMEMBER WHERE USERID = ?";
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, userId);
             ResultSet rs = pstmt.executeQuery();
             if (rs.next()) {
-                // USERPT를 Double로 가져옵니다.
                 return new UserDTO(
                         rs.getString("USERID"),
                         rs.getString("USERPWD"),
                         rs.getString("USERNAME"),
-                        rs.getDouble("USERPT") // USERPT를 Double로 가져옵니다.
+                        rs.getDouble("USERPT"),
+                        rs.getString("USERPIC") // 프로필 사진 경로 추가
                 );
             }
         } catch (SQLException e) {
@@ -76,7 +75,8 @@ public class UserDAO {
         }
         return null;
     }
-    //비번변경 , 닉네임 수정
+
+    // 비밀번호 변경 및 닉네임 수정
     public boolean updateUser(UserDTO user) {
         String sql = "UPDATE PJMEMBER SET USERPWD = ?, USERNAME = ? WHERE USERID = ?";
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -90,10 +90,11 @@ public class UserDAO {
             return false;
         }
     }
-        //닉네임 가져오기
+
+    // 닉네임 가져오기
     public String getUserName(String userId) {
         String userName = null;
-        String sql = "SELECT username FROM pjmember WHERE userid = ?";
+        String sql = "SELECT USERNAME FROM PJMEMBER WHERE USERID = ?";
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, userId);
             ResultSet rs = pstmt.executeQuery();
@@ -105,6 +106,4 @@ public class UserDAO {
         }
         return userName;
     }
-
-
 }

@@ -6,12 +6,14 @@ public class UserDTO {
     private String userpwd;
     private String username;
     private Number userpt;
+    private String userpic;
 
-    public UserDTO(String userId, String userPwd , String userName,Number userPt) {
+    public UserDTO(String userId, String userPwd , String userName,Number userPt,String userPic) {
         this.userid = userId;
         this.userpwd = userPwd;
         this.username = userName;
         this.userpt = userPt;
+        this.userpic = userPic;
 
     }
 
@@ -43,6 +45,14 @@ public class UserDTO {
 
     public Number getUserpt() {
         return userpt;
+    }
+
+    public String getUserpic() {
+        return userpic;
+    }
+
+    public void setUserpic(String userpic) {
+        this.userpic = userpic;
     }
 
     public void setUserpt(Number userpt) {

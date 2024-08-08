@@ -22,6 +22,7 @@
     String userId = request.getParameter("USERID");
     String userPwd = request.getParameter("USERPWD");
     String userName = request.getParameter("USERNAME");
+    String userPic = request.getParameter("USERPIC");
     Double userPt = null;
 
     // USERPT 값이 null이 아닐 경우에만 변환
@@ -36,7 +37,7 @@
       out.println("<script>alert('중복된 이름입니다. 다른 이름을 사용해주세요.'); location.href='MyPage.jsp';</script>");
     } else {
       // UserDTO 객체를 생성하여 사용자 정보를 설정합니다.
-      UserDTO user = new UserDTO(userId, userPwd, userName, userPt);
+      UserDTO user = new UserDTO(userId, userPwd, userName, userPt,userPic);
 
       // 사용자 정보 업데이트
       if (userDAO.updateUser(user)) {

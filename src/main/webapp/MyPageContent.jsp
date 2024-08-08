@@ -12,7 +12,7 @@
 <head>
   <meta charset="UTF-8">
   <title>마이페이지</title>
-  <link rel="stylesheet" href="./Newbie/PJCSS.css">
+
 </head>
 <body>
 <div>
@@ -26,15 +26,19 @@
     변경할 PWD: <input type="password" name="USERPWD" value="<%= user.getUserpwd() %>">
     <br><br>
     변경할 닉네임: <input type="text" name="USERNAME" placeholder="한글8자,영어16자 허용">
-    <br><br>
 
-    <!-- 프로필 사진 업로드 -->
-    프로필 사진: <input type="file" name="USERPIC">
+
     <br><br>
     내 글목록
     <br>
     매너점수 : <%=user.getUserpt() %> , <a href="#" > 후기 </a> <br>
     <input type="submit" value="수정완료">
+    <br><br>
+  </form>
+  <form action="UploadFile.jsp" method="post" enctype="multipart/form-data">
+    프로필 사진: <input type="file" name="USERPIC" accept="image/*">
+    <br><br>
+    <input type="submit" value="사진 업로드">
   </form>
 </div>
 </body>
