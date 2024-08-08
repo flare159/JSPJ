@@ -24,6 +24,7 @@
         String userPwd = request.getParameter("USERPWD");
         String userName = request.getParameter("USERNAME");
         String userPtStr = request.getParameter("USERPT");
+        String userPic= request.getParameter("USERPIC");
 
         // 사용자 포인트를 숫자로 변환
         Number userPt = null;
@@ -38,7 +39,7 @@
         }
 
         // UserDTO 객체 생성
-        UserDTO user = new UserDTO(userId, userPwd, userName, userPt);
+        UserDTO user = new UserDTO(userId, userPwd, userName, userPt,userPic);
         UserDAO userDAO = new UserDAO(conn);
 
         // 사용자 검증 및 리다이렉트

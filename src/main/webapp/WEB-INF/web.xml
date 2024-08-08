@@ -26,11 +26,11 @@
 
     <servlet>
         <servlet-name>UploadServlet</servlet-name>
-        <servlet-class>com.example.sportsmatepj.UploadServlet</servlet-class>
+        <servlet-class>com.example.sportsmatepj.MyPageContentServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>UploadServlet</servlet-name>
-        <url-pattern>/UploadServlet</url-pattern>
+        <url-pattern>/upload.do</url-pattern>
     </servlet-mapping>
 
 
