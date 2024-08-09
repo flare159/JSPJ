@@ -26,8 +26,15 @@ public class FileUtil {
         // 파일 파트 가져오기
         Part filePart = request.getPart("USERPIC");
 
+        // 세션에서 USERID 가져오기
+        String userId = (String) request.getSession().getAttribute("userId");
+
         // 원본 파일 이름 가져오기
         String originalFileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
+
+        //쓰레기값 방지 파일저장소에 ID별 프로필사진으로 사진이름 등록
+        String uniqueFileName = userId + "propic"  ;
+
 
         // 저장할 파일 경로 설정
         File saveDir = new File(saveDirectory);
@@ -36,12 +43,12 @@ public class FileUtil {
         }
 
         // 파일 저장
-        File file = new File(saveDir, originalFileName);
+        File file = new File(saveDir, uniqueFileName);
         try (InputStream fileContent = filePart.getInputStream()) {
             // 파일을 지정된 경로에 저장
             Files.copy(fileContent, file.toPath(), StandardCopyOption.REPLACE_EXISTING);
         }
 
-        return originalFileName; // 원본 파일 이름 반환
+        return uniqueFileName; // 원본 파일 이름 반환
     }
 }

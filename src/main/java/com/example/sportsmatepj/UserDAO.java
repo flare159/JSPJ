@@ -115,19 +115,16 @@ public class UserDAO {
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, userPic);
             pstmt.setString(2, userId);
-            //디버깅용
-            System.out.println("Executing query: " + sql);
-            System.out.println("With USERPIC: " + userPic + ", USERID: " + userId);
 
 
             int rowsAffected = pstmt.executeUpdate();
-            System.out.println("rowsAffected: " + rowsAffected); //디버깅용
+
             isUpdated = (rowsAffected > 0);
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("SQL 예외 발생: " + e.getMessage());
         }
-        System.out.println("isUpdated: " + isUpdated);
+
         return isUpdated;
     }
 

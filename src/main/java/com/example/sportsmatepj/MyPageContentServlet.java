@@ -60,7 +60,7 @@ public class MyPageContentServlet extends HttpServlet {
 
             if (isUpdated) {
                 // 파일 목록 페이지로 리다이렉션
-                System.out.println("프로필 사진 업데이트 성공"); // 디버깅용
+             
                 resp.sendRedirect("SportsMate3.jsp");
             } else {
                 throw new Exception("프로필 사진 업데이트 실패");
