@@ -5,7 +5,7 @@
 <%
   UserDTO user = (UserDTO) request.getAttribute("user");
   session.setAttribute("userId", user.getUserid());
-
+  session.setAttribute("userPic", user.getUserpic());
 %>
 
 <html>
@@ -24,10 +24,11 @@
   <div>
     <!-- 프로필 사진 표시 -->
     <%
+      String userId = (String) request.getSession().getAttribute("userid");
       String userPic = user.getUserpic(); // DB에서 가져온 프로필 사진 경로
       if (userPic != null && !userPic.isEmpty()) {
     %>
-    <img src="<%= request.getContextPath() + "/uploads/" + userPic %>" alt="프로필 사진" width="150" height="150" />
+    <img src="<%= request.getContextPath() + "/uploads/"+userId+"propic.jpg" %>" alt="프로필 사진" />
     <%
     } else {
     %>
@@ -56,7 +57,7 @@
   <h2>프로필 사진 변경 </h2>
   <form action="MyPageContent.do" method="post" enctype="multipart/form-data">
     <input type="file" name="USERPIC" />
-    <input type="submit" value="업로드" />
+    <input type="submit" value="변경완료" />
   </form>
 
 

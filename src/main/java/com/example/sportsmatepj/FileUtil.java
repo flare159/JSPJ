@@ -33,7 +33,7 @@ public class FileUtil {
         String originalFileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
 
         //쓰레기값 방지 파일저장소에 ID별 프로필사진으로 사진이름 등록
-        String uniqueFileName = userId + "propic"  ;
+        String uniqueFileName = userId + "propic.jpg"  ;
 
 
         // 저장할 파일 경로 설정

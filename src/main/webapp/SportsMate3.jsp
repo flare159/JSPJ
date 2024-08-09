@@ -1,3 +1,4 @@
+<%@ page import="com.example.sportsmatepj.UserDTO" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java"
          pageEncoding="UTF-8"
 %>
@@ -5,6 +6,9 @@
 <%
     String userid = (String) session.getAttribute("userid");
     String username = (String) session.getAttribute("username");
+
+
+
 
 %>
 <%-- USERID --%>
@@ -55,9 +59,26 @@
     } else {
 
     %>
+
+
+
     <div class="login-box">
+        <div class="profile-line" style="width: 300px" >
+            <!-- 프로필 사진 표시 -->
+            <%
+                String userId = (String) request.getSession().getAttribute("userid");
+            %>
+            <img src="<%= request.getContextPath() + "/uploads/"+userId+"propic.jpg" %>" alt="프로필 사진" />
+
+        </div>
+
         어서오세요 <%=username%> 님 <a href="Logout.jsp"><input type="button" value="로그아웃"></a>
         <a href="Mypage.jsp"><input type="button" value="마이페이지"></a>
+
+
+        <h2>Ranking</h2>
+
+
     </div>
     <%
         }
